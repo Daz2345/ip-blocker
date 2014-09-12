@@ -55,7 +55,9 @@ IP_BLOCKER={
     
     on_auth_limit:3,//The max number of times an auth request can fail.
     
-    interval_duration:7200000 //In milliseconds the interval at which the server checks for expired keys and deletes them.
+    interval_duration:7200000, //In milliseconds the interval at which the server checks for expired keys and deletes them.
+
+    redis_password:null //No password for localhost. Put your password here if you're using a production setup.
 
 };
 ```

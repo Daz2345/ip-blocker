@@ -2,6 +2,10 @@ var url = Npm.require("url");
 
 if(IP_BLOCKER.redis_enabled){
     var client = redis.createClient(IP_BLOCKER.redis_port, IP_BLOCKER.redis_host);
+    if(IP_BLOCKER.redis_password!==null){
+        client.auth(IP_BLOCKER.redis_password)
+    }
+
 }
 var ip_blocker_hashmap={};
 function push_ip(){

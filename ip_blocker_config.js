@@ -11,6 +11,6 @@ IP_BLOCKER={
     pull_ip_route:'pull_ip',//The route through which you can pull IP addresses to your whitelist or blacklist
     on_auth_error:'block',//If a user tries to push or pull an IP and the authorization fails block the user and redirect.
     on_auth_limit:3,//The max number of times an auth request can fail.
-    interval_duration:7200000 //In milliseconds the interval at which the server checks for expired keys and deletes them.
-
+    interval_duration:7200000, //In milliseconds the interval at which the server checks for expired keys and deletes them.
+    redis_password:null //No password for localhost
 };
