@@ -84,6 +84,9 @@ Contributions
 ------------
 Contributions are always welcome. If you have any issue that you can resolve then send us a pull request. 
 
+TESTS
+------------
+We'll have the test scripts up in a few days. 
 
 License
 ------------
