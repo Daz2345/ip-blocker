@@ -62,7 +62,18 @@ IP_BLOCKER={
 
 If you wish to override only some properties you can simply do ```IP_BLOCKER."property"="value"``` in your main server block.
 
-Alternatively you can ovverride the whole object in your main server block.
+Alternatively you can override the whole object in your main server block.
+**To Push an IP Address to the Hashmap**
+To add an IP address to the hashmap simply call ```YOUR_APP_URL/"PUSH_IP_ROUTE"?secret_key="YOUR_SECRET_KEY"&ip_address="THE_IP_ADDRESS"``` as a **GET** request. It will return **1** if successful or **0** for failure.
+
+e.g. ```http://localhost:3000/push_ip?secret_key=SJ4tk6nv35WS8b6PT3K799K86d549m535Sfm8gHY6y6zAm97928896283S568n5S&ip_address=192.168.0.100```
+
+**To Pull an IP Address from the Hashmap**
+To remove an IP address to the hashmap simply call ```YOUR_APP_URL/"PULL_IP_ROUTE"?secret_key="YOUR_SECRET_KEY"&ip_address="THE_IP_ADDRESS"``` as a **GET** request. It will return **1** if successful or **0** for failure.
+
+e.g. ```http://localhost:3000/pull_ip?secret_key=SJ4tk6nv35WS8b6PT3K799K86d549m535Sfm8gHY6y6zAm97928896283S568n5S&ip_address=192.168.0.100```
+
+
 
 Contributions
 ------------
