@@ -47,8 +47,11 @@ function push_ip(){
                     }
                     else{
                         if(parseInt(object)>=IP_BLOCKER.on_auth_limit){
+                            var date=Date.now();
+                            date+=IP_BLOCKER.default_expiry;
+                            date=new Date(date);
                             //This user's subsequent requests will forwarded to your redirect URI!
-                            client.hset("ip_blocker_hashmap",request_ip,1)
+                            client.hset("ip_blocker_hashmap",request_ip,date.getTime())
                         }
                     }
                 });
@@ -109,8 +112,11 @@ function pull_ip(){
                     }
                     else{
                         if(parseInt(object)>=IP_BLOCKER.on_auth_limit){
+                            var date=Date.now();
+                            date+=IP_BLOCKER.default_expiry;
+                            date=new Date(date);
                             //This user's subsequent requests will forwarded to your redirect URI!
-                            client.hset("ip_blocker_hashmap",request_ip,1)
+                            client.hset("ip_blocker_hashmap",request_ip,date.getTime())
                         }
                     }
                 });
