@@ -1,12 +1,6 @@
 var url = Npm.require("url");
 
-if(IP_BLOCKER.redis_enabled){
-    var client = redis.createClient(IP_BLOCKER.redis_port, IP_BLOCKER.redis_host);
-    if(IP_BLOCKER.redis_password!==null){
-        client.auth(IP_BLOCKER.redis_password)
-    }
 
-}
 var ip_blocker_hashmap={};
 function push_ip(){
     var forwarded_for=this.request.headers['x-forwarded-for'];
@@ -142,6 +136,19 @@ function pull_ip(){
 
 }
 Meteor.startup(function() {
+    if(IP_BLOCKER.redis_enabled){
+        console.info("Connecting to REDIS HOST: "+IP_BLOCKER.redis_host);
+        client = redis.createClient(IP_BLOCKER.redis_port, IP_BLOCKER.redis_host);
+        if(IP_BLOCKER.redis_password!==null){
+            client.auth(IP_BLOCKER.redis_password)
+        }
+
+    }
+    flush_expired();
+    if(IP_BLOCKER.default_expiry!==0){
+
+        setInterval(flush_expired,IP_BLOCKER.interval_duration);
+    }
     Router.map(function() {
         this.route("ip_blocker_push_ip", {
             path: "/"+IP_BLOCKER.push_ip_route,
@@ -185,10 +192,7 @@ function flush_expired(){
         }
     }
 }
-if(IP_BLOCKER.default_expiry!==0){
-    flush_expired();
-    setInterval(flush_expired,IP_BLOCKER.interval_duration);
-}
+
 
 
 
