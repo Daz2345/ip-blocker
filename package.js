@@ -6,7 +6,7 @@ Package.describe({
 
 Package.on_use(function(api) {
     api.versionsFrom('METEOR@0.9.0');
-    api.use('iron:router', 'server');
+    api.use('iron:router@0.9.0', 'server');
     api.use('webapp', 'server');
     api.use('mrt:redis@0.1.3','server');
     api.use('underscore','server');
