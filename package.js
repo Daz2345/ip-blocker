@@ -5,7 +5,7 @@ Package.describe({
 });
 
 Package.on_use(function(api) {
-    api.versionsFrom('METEOR@1.0.1');
+    api.versionsFrom('METEOR@1.0.2');
     api.use('iron:router@1.0.5', 'server');
     api.use('webapp', 'server');
     api.use('mrt:redis@0.1.3','server');
