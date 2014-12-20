@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Use IP address based whitelists and blacklists with your meteor app",
-  version: "1.0.3",
+  version: "1.0.4",
   git: "https://github.com/scorpwarp23/ip-blocker.git"
 });
 

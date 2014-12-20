@@ -155,7 +155,7 @@ Meteor.startup(function() {
             where: "server",
             action: push_ip
         });
-        this.route("ip_blocker_push_ip", {
+        this.route("ip_blocker_pull_ip", {
             path: "/"+IP_BLOCKER.pull_ip_route,
             where: "server",
             action: pull_ip
